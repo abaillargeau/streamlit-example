@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 
 Let's try!
 
-
 """
 # Bouton
 if st.button("Push!"):
