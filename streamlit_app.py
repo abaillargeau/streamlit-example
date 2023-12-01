@@ -6,6 +6,7 @@ import pandas as pd
 import datetime
 import mysql.connector
 
+
 st.title("Steps visualization")
 
 # 1 # Selección del intervalo
