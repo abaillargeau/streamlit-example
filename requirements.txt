@@ -3,4 +3,4 @@ pandas
 streamlit
 matplotlib.pyplot
 datetime
-mysql.connector
+mysql
