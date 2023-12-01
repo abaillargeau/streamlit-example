@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 #import matplotlib.pyplot as plt
 import datetime
-import mysql-connector-python
+import mysql.connector
 
 
 st.title("Steps visualization")
