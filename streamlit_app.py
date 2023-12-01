@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 #import matplotlib.pyplot as plt
 import datetime
+import mysql.connector
 
 st.title("Steps visualization")
 
@@ -45,7 +46,6 @@ elif selection == 'Left foot':
 # 3 # Gráfico que muestra donde hay datos en el intervalo.
 
 # Configuramos parámetros
-
 mydb = mysql.connector.connect(
     host = "apiivm78.etsii.upm.es",
     user = "TBDA",
