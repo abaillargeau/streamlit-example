@@ -33,3 +33,13 @@ if selection == 'Right foot':
     
 elif selection == 'Left foot':
     st.markdown("The results will be shown for the <span style='color:blue;font-weight:bold;'>left foot</span>.", unsafe_allow_html=True)
+
+# 3 # Seleccion del mac
+
+st.write('<p style="font-size:25px;">3. Patient identification', unsafe_allow_html=True)
+st.write('<p style="font-size:18px;">Enter the patient identification (mac).</p>', unsafe_allow_html=True)
+patient_mac = st.text_input("Enter the patient identification (mac)")
+
+st.markdown(f"The results will be shown for the patient with identification (mac): <span style='color:blue;font-weight:bold;'>{patient_mac}</span>.", unsafe_allow_html=True)
+
+
