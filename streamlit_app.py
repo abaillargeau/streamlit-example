@@ -34,12 +34,31 @@ if selection == 'Right foot':
 elif selection == 'Left foot':
     st.markdown("The results will be shown for the <span style='color:blue;font-weight:bold;'>left foot</span>.", unsafe_allow_html=True)
 
-# 3 # Seleccion del mac
+mac_izd = 'E0:52:B2:8B:2A:C2'
+mac_der = 'C9:7B:84:76:32:14'
+foot = 'A'
+if selection == 'Right foot':
+    foot = 'C9:7B:84:76:32:14'
+elif selection == 'Left foot':
+    foot = 'E0:52:B2:8B:2A:C2'
 
-st.write('<p style="font-size:25px;">3. Patient identification', unsafe_allow_html=True)
-st.write('<p style="font-size:18px;">Enter the patient identification (mac).</p>', unsafe_allow_html=True)
-patient_mac = st.text_input("Enter the patient identification (mac)")
+# 3 # Gráfico que muestra donde hay datos en el intervalo.
 
-st.markdown(f"The results will be shown for the patient with identification (mac): <span style='color:blue;font-weight:bold;'>{patient_mac}</span>.", unsafe_allow_html=True)
+# Configuramos parámetros
+
+mydb = mysql.connector.connect(
+    host = "apiivm78.etsii.upm.es",
+    user = "TBDA",
+    password = "UPM#2324",
+    database = "sclerosisTBDA")
+cur = mydb.cursor()
+
+statement = "SELECT desde, hasta FROM `actividad-G03` WHERE mac = %s AND (desde BETWEEN %s AND %s) AND (hasta BETWEEN %s AND %s)"
+cur.execute(statement, (foot, f"{start_date} {start_time}", f"{end_date} {end_time}", f"{start_date} {start_time}", f"{end_date} {end_time}"))
+data_intervals = pd.DataFrame(cur.fetchall(), columns=['desde', 'hasta'])
+
+# Afficher les intervalles sur l'interface
+st.write('<p style="font-size:25px;">3. Data intervals', unsafe_allow_html=True)
+st.write('<p style="font-size:18px;">Intervals with available data in the selected range:</p>', unsafe_allow_html=True)
 
 
