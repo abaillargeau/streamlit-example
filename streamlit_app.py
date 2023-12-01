@@ -33,4 +33,3 @@ if selection == 'Right foot':
     
 elif selection == 'Left foot':
     st.markdown("The results will be shown for the <span style='color:blue;font-weight:bold;'>left foot</span>.", unsafe_allow_html=True)
-
