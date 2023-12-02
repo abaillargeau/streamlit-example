@@ -1,12 +1,12 @@
-pip install mysql-connector-python
-
 import streamlit as st 
 import altair as alt
 import numpy as np
 import pandas as pd
 #import matplotlib.pyplot as plt
 import datetime
-import mysql.connector
+import subprocess
+subprocess.call(['pip', 'install', '-r', 'requirements.txt'])
+
 
 st.title("Steps visualization")
 
